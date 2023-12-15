@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <!-- links -->
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/form.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css
+  ">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+</head>
+
+<body>
+  <!-- modal -->
+  <div class="modal fade" id="tariffyearModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header border-0">
+          <h2 class="modal-title fs-5" id="staticBackdropLabel">Tariff Year Entry</h2>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body py-0">
+          <table class="table table-bordered" id="yearTable">
+            <thead>
+              <tr>
+                <th>S.No</th>
+                <th>Year</th>
+                <th>Tariff</th>
+              </tr>
+            </thead>
+          </table>
+        </div>
+        <div class="modal-footer border-0">
+          <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">Cancel</button>
+          <button type="button" class="btn custombtn btncenter" data-bs-dismiss="modal"
+            onclick="tariffyearBtn()">Submit</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <button type="button" id="modalTrigger" class="d-none" data-bs-toggle="modal"
+    data-bs-target="#tariffyearModal"></button>
+  <!-- modal end -->
+
+  <!-- modal -->
+  <div class="modal fade" id="getyeartariffdata" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header border-0">
+          <h2 class="modal-title fs-5" id="staticBackdropLabel">Tariff Year Table show</h2>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body py-0">
+          <table class="table table-bordered" id="getyearTable">
+            <thead>
+              <tr>
+                <th>S.No</th>
+                <th>Year</th>
+                <th>Tariff</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+          </table>
+        </div>
+        <div class="modal-footer border-0">
+          <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">close </button>
+          <button type="button" class="btn custombtn btncenter" data-bs-dismiss="modal">Save </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- modal end -->
+
+  <div class="card">
+    <div class="form">
+      <div class="left-side">
+        <figure class="bg-white d-none">
+          <img src="https://img.freepik.com/premium-vector/woman-is-standing-with-laptop_870049-247.jpg" width="150px">
+        </figure>
+        <ul class="progress-bar">
+          <li class="active">
+            <ion-icon name="folder-outline"></ion-icon> Project Details
+          </li>
+          <li><ion-icon name="time-outline"></ion-icon> Scheduling Details</li>
+          <li><ion-icon name="timer-outline"></ion-icon> Service Provider Details</li>
+          <li><ion-icon name="git-network-outline"></ion-icon> DSM Details</li>
+        </ul>
+      </div>
+      <div class="right-side">
+        <div class="main active">
+          <div class="d-flex justify-content-between align-items-center">
+            <div class="steptitle">
+              <h1>Project Details</h1>
+            </div>
+            <div class="steps-content">
+              <h3><i class="bi bi-folder-plus"></i> Step - <span class="step-number">1</span>
+              </h3>
+              <p class="step-number-content active">Enter your personal information to get closer to companies.</p>
+              <p class="step-number-content d-none">Get to know better by adding your diploma,certificate and education
+                life.</p>
+              <p class="step-number-content d-none">Help companies get to know you better by telling then about your
+                past
+                experiences.</p>
+              <p class="step-number-content d-none">Add your profile piccture and let companies find youy fast.</p>
+            </div>
+          </div>
+          <div class="input-text">
+            <div class="input-div">
+              <input type="text" required require id="user_name">
+              <span>Site Name</span>
+            </div>
+            <div class="input-div">
+              <input type="text" required require>
+              <span>SPV Name</span>
+            </div>
+            <div class="input-div">
+              <select required>
+                <option disabled selected="">- Select Type -</option>
+                <option>Solar</option>
+                <option>Wind</option>
+              </select>
+            </div>
+          </div>
+          <div class="input-text">
+            <div class="input-div">
+              <input type="text" required require>
+              <span>DC Capacity (MWp)</span>
+            </div>
+            <div class="input-div">
+              <input type="text" required require>
+              <span>AC Capacity (MW)</span>
+            </div>
+            <div class="input-div">
+              <select required>
+                <option disabled selected="">- Select State -</option>
+                <option>Delhi</option>
+                <option>MP</option>
+              </select>
+            </div>
+          </div>
+          <div class="input-text">
+            <div class="input-div">
+              <select required>
+                <option disabled selected="">- Transaction -</option>
+                <option>ISTS</option>
+                <option>InSTS</option>
+              </select>
+            </div>
+            <div class="input-div">
+              <select required>
+                <option disabled selected="">- Entity -</option>
+                <option>State</option>
+                <option>Regional</option>
+              </select>
+            </div>
+            <div class="input-div">
+              <select required>
+                <option disabled selected="">- Connectivity -</option>
+                <option>CTU</option>
+                <option>STU</option>
+              </select>
+            </div>
+          </div>
+          <div class="input-text">
+            <div class="input-div">
+              <input type="text" required require>
+              <span>Power Park Name</span>
+            </div>
+            <div class="input-div">
+              <input type="text" required require>
+              <span>Unit No. in Power Park</span>
+            </div>
+            <div class="input-div">
+              <input type="date" required require>
+              <span>COD</span>
+            </div>
+          </div>
+          <div class="input-text">
+            <div class="input-div">
+              <input type="date" required require>
+              <span>PPA Date</span>
+            </div>
+            <div class="input-div">
+              <input type="date" class="form-control" required require>
+              <span>PPA End Date</span>
+            </div>
+            <div class="input-div">
+              <select required>
+                <option disabled selected="">- Select Power Mode -</option>
+                <option>Feed in tariff</option>
+                <option>Competitive Bidding</option>
+                <option>MoU</option>
+              </select>
+            </div>
+          </div>
+          <div class="input-text">
+            <div class="input-div">
+              <input type="text" required require>
+              <span>PPA Tariff (Rs./kWh)</span>
+            </div>
+            <div class="input-div">
+              <select required aria-required="true" id="tariffesc">
+                <option disabled selected="">- Tariff Escalation -</option>
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+              </select>
+            </div>
+            <button type="button" class="btn btn-sm btn-primary d-none" data-bs-toggle="modal"
+              data-bs-target="#getyeartariffdata" id="getyearButton" onclick="showtariffbtn()">Show Tariff</button>
+          </div>
+          <!-- step 1 form end -->
+          <div class="buttons">
+            <button class="next_button bg-success">
+              Next Step
+            </button>
+          </div>
+        </div>
+        <div class="main">
+          <div class="d-flex justify-content-between align-items-center">
+            <div class="steptitle">
+              <h1>SCHEDULING DETAILS</h1>
+            </div>
+            <div class="steps-content">
+              <h3><i class="bi bi-folder-plus"></i> Step - <span class="step-number">1</span>
+              </h3>
+              <p class="step-number-content active">Enter your personal information to get closer to companies.</p>
+              <p class="step-number-content d-none">Get to know better by adding your diploma,certificate and education
+                life.</p>
+              <p class="step-number-content d-none">Help companies get to know you better by telling then about your
+                past
+                experiences.</p>
+              <p class="step-number-content d-none">Add your profile piccture and let companies find youy fast.</p>
+            </div>
+          </div>
+          <div class="input-text">
+            <div class="input-div">
+              <input type="text" required require>
+              <span>Scheduling Entity</span>
+            </div>
+            <div class="input-div">
+              <input type="text" required>
+              <span>POS Name</span>
+            </div>
+            <div class="input-div">
+              <input type="text" required>
+              <span>Down Stream Name</span>
+            </div>
+          </div>
+          <div class="input-text">
+            <div class="input-div">
+              <input type="text" required require>
+              <span>Offtaker</span>
+            </div>
+            <div class="input-div">
+              <input type="text" required require>
+              <span>Contract ID</span>
+            </div>
+            <div class="input-div">
+              <input type="text" required require>
+              <span>Contract Capacity</span>
+            </div>
+          </div>
+          <div class="input-text">
+            <div class="input-div">
+              <input type="text" required require>
+              <span>Contract Type</span>
+            </div>
+            <div class="input-div">
+              <input type="text" required require>
+              <span>Path</span>
+            </div>
+            <div class="input-div">
+              <input type="text" required require>
+              <span>Buyer</span>
+            </div>
+          </div>
+          <div class="input-text">
+            <div class="input-div">
+              <input type="text" required require>
+              <span>STU Name</span>
+            </div>
+            <div class="input-div">
+              <input type="text" required require>
+              <span>Approval step-number</span>
+            </div>
+            <div class="input-div">
+              <input type="text" required require>
+              <span>LDC Registration Number</span>
+            </div>
+          </div>
+          <div class="buttons button_space">
+            <button class="back_button">Back</button>
+            <button class="next_button">Next Step</button>
+          </div>
+        </div>
+        <div class="main">
+          <div class="d-flex justify-content-between align-items-center">
+            <div class="steptitle">
+              <h1>Service Provider Details</h1>
+            </div>
+          </div>
+          <div class="input-text">
+            <div class="input-div">
+              <input type="text" required require>
+              <span>Forecasting Agency Name</span>
+            </div>
+            <div class="input-div">
+              <input type="text" required require>
+              <span>Forecasting Charges (Rs/MW/Month)</span>
+            </div>
+            <div class="input-div">
+              <input type="date" class="form-control" required require>
+              <span>Service Start Date</span>
+            </div>
+          </div>
+          <div class="input-text">
+            <div class="input-div">
+              <input type="date" required>
+              <span>Service End Date</span>
+            </div>
+            <div class="input-div">
+              <input type="text" required>
+              <span>Scheduling Agency Name</span>
+            </div>
+            <div class="input-div">
+              <input type="text" required>
+              <span>Scheduling Charges (Rs/MW/Month)</span>
+            </div>
+          </div>
+          <div class="input-text">
+            <div class="input-div">
+              <input type="date" required>
+              <span>Service Start Date</span>
+            </div>
+            <div class="input-div">
+              <input type="date" required>
+              <span>Service End Date</span>
+            </div>
+          </div>
+          <div class="form-title">
+            <h4>QCA Agency form</h4>
+          </div>
+          <div class="input-text">
+            <div class="input-div">
+              <input type="text" required>
+              <span>QCA Agency Name</span>
+            </div>
+            <div class="input-div">
+              <input type="text" required>
+              <span>QCA Charges (Rs/MW/Month)</span>
+            </div>
+            <div class="input-div">
+              <input type="date" required>
+              <span>Service Start Date</span>
+            </div>
+          </div>
+          <div class="input-text">
+            <div class="input-div">
+              <input type="text" required>
+              <span>Service End Date</span>
+            </div>
+            <div class="input-div">
+              <select required>
+                <option disabled selected="">- Aggregation Level -</option>
+                <option>NA</option>
+                <option>PSS</option>
+                <option>Virtual</option>
+                <option>Pool</option>
+              </select>
+            </div>
+            <div class="input-div">
+              <input type="text" required>
+              <span>Aggregation Capacity (MW)</span>
+            </div>
+          </div>
+          <div class="input-text">
+            <div class="input-div">
+              <select required>
+                <option disabled selected="">- De-Pool Method -</option>
+                <option>Ind. Acc.</option>
+                <option>Per MW</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-title d-flex justify-content-between align-items-center">
+            <h4>ISP form</h4>
+            <button onclick="addIspFields()" class="btn btn-sm btnlight">
+              <i class="bi bi-plus me-1"></i>Add Fields</button>
+          </div>
+          <div class="inputcustomrow">
+            <div class="input-text">
+              <div class="input-div">
+                <input type="text" required>
+                <span>ISP-1</span>
+              </div>
+              <div class="input-div">
+                <select required>
+                  <option disabled selected="">- ISP 1 Type -</option>
+                  <option>ILL</option>
+                  <option>Broadband</option>
+                  <option>Dongle</option>
+                  <option>V-SAT</option>
+                </select>
+              </div>
+              <div class="input-div">
+                <input type="text" required>
+                <span>ISP-1 Bandwidth (MBPS)</span>
+              </div>
+            </div>
+            <div class="input-text">
+              <div class="input-div">
+                <input type="text" required>
+                <span>ISP-2</span>
+              </div>
+              <div class="input-div">
+                <select required>
+                  <option disabled selected="">- ISP 2 Type -</option>
+                  <option>ILL</option>
+                  <option>Broadband</option>
+                  <option>Dongle</option>
+                  <option>V-SAT</option>
+                </select>
+              </div>
+              <div class="input-div">
+                <input type="text" required>
+                <span>ISP-2 Bandwidth</span>
+              </div>
+            </div>
+            <div class="inputcustomitem"></div>
+          </div>
+          <div class="form-title">
+            <h4>Plant form</h4>
+          </div>
+          <div class="input-text">
+            <div class="input-div">
+              <input type="text" required>
+              <span>Plant SCADA Provider</span>
+            </div>
+            <div class="input-div">
+              <input type="text" required>
+              <span>SCADA Manager</span>
+            </div>
+            <div class="input-div">
+              <select required="">
+                <option disabled="" selected="">- QCA Data Transfer Mode -</option>
+                <option>OPC</option>
+                <option>FTP</option>
+                <option>API</option>
+              </select>
+            </div>
+          </div>
+          <div class="input-text">
+            <div class="input-div">
+              <input type="text" required>
+              <span>PSS SCADA Provider</span>
+            </div>
+            <div class="input-div">
+              <input type="text" required>
+              <span>Data Telemetry (DT)</span>
+            </div>
+            <div class="input-div">
+              <input type="text" required>
+              <span>DT Internet Provider</span>
+            </div>
+          </div>
+          <div class="input-text">
+            <div class="input-div">
+              <input type="text" required>
+              <span>Plant O&M Service Provider</span>
+            </div>
+          </div>
+          <div class="buttons button_space">
+            <button class="back_button">Back</button>
+            <button class="next_button">Next Step</button>
+          </div>
+        </div>
+        <div class="main">
+          <div class="d-flex justify-content-between align-items-center">
+            <div class="steptitle">
+              <h1>DSM Details</h1>
+            </div>
+          </div>
+          <div class="input-text">
+            <div class="input-div">
+              <input type="date" required require>
+              <span>DSM start date</span>
+            </div>
+            <div class="input-div">
+              <select required="">
+                <option disabled="" selected="">- DSM Period -</option>
+                <option>Weekly</option>
+                <option>Monthly</option>
+                <option>Bimonthly</option>
+                <option>Quarterly</option>
+                <option>Custom days range</option>
+              </select>
+            </div>
+            <div class="input-div">
+              <input type="number" required require>
+              <span>Tentative Published DSM credit days</span>
+            </div>
+          </div>
+          <div class="input-text">
+            <div class="input-div">
+              <input type="number" required require>
+              <span>Payable credit days</span>
+            </div>
+            <div class="input-div">
+              <input type="number" required require>
+              <span>Receivable credit days</span>
+            </div>
+            <div class="input-div">
+              <input type="number" required require>
+              <span>DSM dispute credit days</span>
+            </div>
+          </div>
+          <div class="input-text">
+            <div class="input-div">
+              <span class="rangeheading">DSM Applicable block range</span>
+              <div class="range-slider">
+                <input type="range" min="0" max="100" step="1" value="0" class="range-slider__input" />
+                <input type="range" min="0" max="100" step="1" value="100" class="range-slider__input" />
+                <div class="range-slider__display">
+                </div>
+              </div>
+            </div>
+            <div class="input-div">
+              <input type="number" required require>
+              <span>Energy Accounting Due Date</span>
+            </div>
+            <div class="input-div">
+              <input type="number" required require>
+              <span>Energy published credit days</span>
+            </div>
+          </div>
+          <div class="input-text">
+            <div class="input-div">
+              <input type="number" required require>
+              <span>Invoice submission credit days</span>
+            </div>
+            <div class="input-div">
+              <input type="number" required require>
+              <span>Invoice Receivable credit days</span>
+            </div>
+            <div class="input-div">
+              <input type="number" required require>
+              <span>Invoice Dispute credit days</span>
+            </div>
+          </div>
+          <div class="input-text">
+            <div class="input-div">
+              <input type="date" required require>
+              <span>Safe band start date</span>
+            </div>
+          </div>
+
+          <div class="table-responsive my-5">
+            <div class="dsmtab">
+              <h4 class="mb-0">DSM Table</h4>
+              <p id="invalidMsg" class="text-danger mb-0"></p>
+              <button onclick="toggleAddTable()" class="btn btn-sm btnlight">
+                <i class="bi bi-plus me-1"></i>Add Table</button>
+            </div>
+            <table class="table table-bordered table-striped" id="mylist">
+              <thead>
+                <tr class="inputtablerow">
+                  <td>
+                    <input type="text" placeholder="Enter value" id="bandLimits" autocomplete="off">
+                  </td>
+                  <td>
+                    <input type="number" placeholder="Enter value" id="upperBand" autocomplete="off"
+                      oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                      maxlength="2">
+                  </td>
+                  <td>
+                    <input type="number" placeholder="Enter value" id="lowerBand" autocomplete="off"
+                      oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                      maxlength="2">
+                  </td>
+                  <td>
+                    <input type="number" placeholder="Enter value" id="ppaBand" autocomplete="off"
+                      oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                      maxlength="2">
+                  </td>
+                  <td>
+                    <input type="number" placeholder="Enter value" id="upperPenaltyAge" autocomplete="off"
+                      oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                      maxlength="2">
+                  </td>
+                  <td>
+                    <input type="number" placeholder="Enter value" id="lowerPenaltyAge" autocomplete="off"
+                      oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                      maxlength="2">
+                  </td>
+                  <td><button class="btn addbtn" onclick="return addRow();">
+                      <i class="bi bi-plus"></i></button></td>
+                </tr>
+                <tr>
+                  <th>Safe band limits</th>
+                  <th>Upper band</th>
+                  <th>Lower band</th>
+                  <th>Band PPA Tariff</th>
+                  <th>Upper Penalty</th>
+                  <th>Lower Band Penalty</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- last step end -->
+          <div class="buttons button_space">
+            <button class="back_button">Back</button>
+            <button class="submit_button">Submit</button>
+          </div>
+        </div>
+        <div class="main">
+          <div class="mt-5">
+            <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+              <circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none" />
+              <path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8" />
+            </svg>
+            <div class="text congrats">
+              <h2>Congratulations!</h2>
+            </div>
+            <p class="text-muted text-center">Thanks Mr./Mrs. <span class="shown_name"></span> <br /> your information
+              have been
+              submitted
+              successfully for
+              the future reference we will contact you soon. </p>
+            <figure class="text-center">
+              <img src="img/form.png" width="400px">
+            </figure>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="js/jquery.min.js"></script>
+  <script src="js/datatables.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/form.js"></script>
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+
+</body>
+
+</html>
